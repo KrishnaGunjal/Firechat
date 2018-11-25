@@ -11,12 +11,10 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 class SignInViewController: UIViewController {
-
- 
-    @IBOutlet weak var emailIdTxt: UITextField!
+    @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
-    @IBAction func SignInClicked(_ sender: Any) {
-        let email = emailIdTxt.text
+    @IBAction func signInClicked(_ sender: Any) {
+        let email = emailTxt.text
         let password = passwordTxt.text
         if (email != nil) && (password != nil) {
             Auth.auth().signIn(withEmail: email!, password: password!, completion: { (result,error) in

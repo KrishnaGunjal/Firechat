@@ -21,18 +21,18 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     override func viewDidAppear(_ animated: Bool) {
-        let viewController: UIViewController;
+        let viewC : UIViewController!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         if ( Auth.auth().currentUser != nil)
         {
-            viewController = storyboard.instantiateViewController(withIdentifier: "activeConversation") as! ActiveConversationViewController
+             viewC = storyboard.instantiateViewController(withIdentifier: "activeConversation") as! ActiveConversationViewController
         }
         else
         {
-            viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+            viewC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewC, animated: true)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

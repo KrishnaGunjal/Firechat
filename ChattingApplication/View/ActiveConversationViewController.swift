@@ -7,9 +7,20 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 class ActiveConversationViewController: UITableViewController {
    
+    @IBAction func logOutClicked(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+        } catch let signOutError as NSError {
+            print(signOutError)
+        }
+       print("false")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

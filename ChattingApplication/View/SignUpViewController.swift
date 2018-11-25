@@ -12,10 +12,29 @@ import FirebaseAuth
 import FirebaseDatabase
 class SignUpViewController: UIViewController {
 
+    
     @IBOutlet weak var usernameTxt: UITextField!
-    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var emailIdTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
-    @IBAction func SignUpClicked(_ sender: Any) {
+    @IBAction func signUpClicked(_ sender: Any) {
+        let userName = usernameTxt.text
+        let password = passwordTxt.text
+        let email = emailIdTxt.text
+        if(email != nil) && (password != nil) {
+            Auth.auth().createUser(withEmail: email!, password: password!, completion: { (result, error) in
+                print(result)
+                if error != nil{
+                    print("error")
+                    return
+                }
+                else{
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "activeConversation")as! ActiveConversationViewController
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+                
+            })
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
