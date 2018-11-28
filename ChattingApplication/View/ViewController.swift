@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if ( Auth.auth().currentUser != nil)
         {
-             viewC = storyboard.instantiateViewController(withIdentifier: "activeConversation") as! ActiveConversationViewController
+             viewC = storyboard.instantiateViewController(withIdentifier: "activeConversation") as! ActiveConversationTableViewController
         }
         else
         {

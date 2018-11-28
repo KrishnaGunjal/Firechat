@@ -22,14 +22,19 @@ class SignUpViewController: UIViewController {
         let email = emailIdTxt.text
         if(email != nil) && (password != nil) {
             Auth.auth().createUser(withEmail: email!, password: password!, completion: { (result, error) in
-                print(result)
+                print(result as Any)
                 if error != nil{
-                    print("error")
+                    print(error)
                     return
                 }
                 else{
+                    let ref = Database.database().reference()
+                    let userData = ["email":email,"userName":userName]
+                    let user = Auth.auth().currentUser
+                    
+                ref.child("users").child((user?.uid)!).setValue(userData)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "activeConversation")as! ActiveConversationViewController
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "activeConversation")as! ActiveConversationTableViewController
                     self.navigationController?.pushViewController(viewController, animated: true)
                 }
                 

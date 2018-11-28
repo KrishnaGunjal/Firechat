@@ -1,24 +1,23 @@
 //
-//  ActiveConversationViewController.swift
+//  ConversationTableViewController.swift
 //  ChattingApplication
 //
-//  Created by krishna gunjal on 24/11/18.
+//  Created by krishna gunjal on 26/11/18.
 //  Copyright © 2018 krishna gunjal. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-class ActiveConversationViewController: UITableViewController {
-   
-    @IBAction func composeNewMsg(_ sender: Any) {
-    }
-    @IBAction func logOutClicked(_ sender: Any) {
-        
-    }
+
+class ConversationTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {

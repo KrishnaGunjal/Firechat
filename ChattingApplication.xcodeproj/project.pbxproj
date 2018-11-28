@@ -16,10 +16,14 @@
 		7A89855621A9B77400C929AA /* ChattingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89855521A9B77400C929AA /* ChattingApplicationTests.swift */; };
 		7A89856121A9B77400C929AA /* ChattingApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89856021A9B77400C929AA /* ChattingApplicationUITests.swift */; };
 		7A89856F21A9B7DA00C929AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A89856E21A9B7DA00C929AA /* GoogleService-Info.plist */; };
-		7A89857C21A9C16200C929AA /* ActiveConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89857B21A9C16200C929AA /* ActiveConversationViewController.swift */; };
 		7A89857E21A9C1B200C929AA /* ConversationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89857D21A9C1B200C929AA /* ConversationListCell.swift */; };
 		7A89858021A9C9E900C929AA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89857F21A9C9E900C929AA /* SignInViewController.swift */; };
 		7A89858221A9D33200C929AA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A89858121A9D33200C929AA /* SignUpViewController.swift */; };
+		7A994BBA21ABD629001A8463 /* MessagesCustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A994BB921ABD629001A8463 /* MessagesCustomCellTableViewCell.swift */; };
+		7A994BBC21ABDDDD001A8463 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A994BBB21ABDDDD001A8463 /* ConversationViewController.swift */; };
+		7A994BBE21ABDE47001A8463 /* ActiveConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A994BBD21ABDE47001A8463 /* ActiveConversationTableViewController.swift */; };
+		7A994BC021ABF72A001A8463 /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A994BBF21ABF72A001A8463 /* message.swift */; };
+		7A994BC221ABF81A001A8463 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A994BC121ABF81A001A8463 /* user.swift */; };
 		A821173C61BC44D6554B80B2 /* Pods_ChattingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5802AB7B32DA98E0641164 /* Pods_ChattingApplication.framework */; };
 		B2836F74AAE3C1C24362883C /* Pods_ChattingApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3313A5AC26F5AAAF63DCE730 /* Pods_ChattingApplicationTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,10 +69,14 @@
 		7A89857221A9B96B00C929AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ChattingApplication/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		7A89857321A9B96B00C929AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A89857A21A9BBD100C929AA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		7A89857B21A9C16200C929AA /* ActiveConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveConversationViewController.swift; sourceTree = "<group>"; };
 		7A89857D21A9C1B200C929AA /* ConversationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListCell.swift; sourceTree = "<group>"; };
 		7A89857F21A9C9E900C929AA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7A89858121A9D33200C929AA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7A994BB921ABD629001A8463 /* MessagesCustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		7A994BBB21ABDDDD001A8463 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		7A994BBD21ABDE47001A8463 /* ActiveConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveConversationTableViewController.swift; sourceTree = "<group>"; };
+		7A994BBF21ABF72A001A8463 /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		7A994BC121ABF81A001A8463 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		9B5802AB7B32DA98E0641164 /* Pods_ChattingApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChattingApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFEFC4503732D41DCF1E494 /* Pods-ChattingApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChattingApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChattingApplication/Pods-ChattingApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		E489823CD6D6C0C54BC92F00 /* Pods-ChattingApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChattingApplicationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChattingApplicationTests/Pods-ChattingApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,10 +188,11 @@
 		7A89857521A9B98500C929AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7A89857B21A9C16200C929AA /* ActiveConversationViewController.swift */,
 				7A89854221A9B77400C929AA /* ViewController.swift */,
 				7A89857F21A9C9E900C929AA /* SignInViewController.swift */,
 				7A89858121A9D33200C929AA /* SignUpViewController.swift */,
+				7A994BBD21ABDE47001A8463 /* ActiveConversationTableViewController.swift */,
+				7A994BBB21ABDDDD001A8463 /* ConversationViewController.swift */,
 				7A89854421A9B77400C929AA /* Main.storyboard */,
 				7A89854921A9B77400C929AA /* LaunchScreen.storyboard */,
 			);
@@ -194,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				7A89857D21A9C1B200C929AA /* ConversationListCell.swift */,
+				7A994BB921ABD629001A8463 /* MessagesCustomCellTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -201,6 +211,8 @@
 		7A89857721A9B9B300C929AA /* ModelClass */ = {
 			isa = PBXGroup;
 			children = (
+				7A994BBF21ABF72A001A8463 /* message.swift */,
+				7A994BC121ABF81A001A8463 /* user.swift */,
 			);
 			path = ModelClass;
 			sourceTree = "<group>";
@@ -458,11 +470,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A994BC221ABF81A001A8463 /* user.swift in Sources */,
+				7A994BBE21ABDE47001A8463 /* ActiveConversationTableViewController.swift in Sources */,
 				7A89858221A9D33200C929AA /* SignUpViewController.swift in Sources */,
+				7A994BBC21ABDDDD001A8463 /* ConversationViewController.swift in Sources */,
 				7A89857E21A9C1B200C929AA /* ConversationListCell.swift in Sources */,
-				7A89857C21A9C16200C929AA /* ActiveConversationViewController.swift in Sources */,
 				7A89854321A9B77400C929AA /* ViewController.swift in Sources */,
+				7A994BC021ABF72A001A8463 /* message.swift in Sources */,
 				7A89858021A9C9E900C929AA /* SignInViewController.swift in Sources */,
+				7A994BBA21ABD629001A8463 /* MessagesCustomCellTableViewCell.swift in Sources */,
 				7A89854121A9B77400C929AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +646,7 @@
 			baseConfigurationReference = AAFEFC4503732D41DCF1E494 /* Pods-ChattingApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ChattingApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -645,6 +662,7 @@
 			baseConfigurationReference = 0BE997398928C8DC3B08F486 /* Pods-ChattingApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ChattingApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
