@@ -17,18 +17,6 @@ class ActiveConversationTableViewController: UITableViewController {
         fetchUsers()
         self.tableView.reloadData()
  }
-   /* override func viewWillAppear(_ animated: Bool) {
-    fetchUsers()
-        print("will appear")
-        sleep(3)
-        self.tableView.reloadData()
-    }*/
-   /* override func viewDidAppear(_ animated: Bool) {
-        fetchUsers()
-        print("did appear")
-        sleep(3)
-        self.tableView.reloadData()
-    }*/
     @IBAction func logoutClicked(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {

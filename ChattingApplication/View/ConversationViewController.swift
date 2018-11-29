@@ -13,13 +13,14 @@ import FirebaseDatabase
 class ConversationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var userData : user!
     var msgArray = [message]()
-
+    var keyArray = [conversationKeys]()
+    
     @IBOutlet weak var msgTxt: UITextField!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   tableView.delegate = self
-       // tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         self.navigationItem.title = userData.userName
         loadMessages()
     }
@@ -34,16 +35,67 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
                 let toId = item.childSnapshot(forPath: "toId").value as! String
                 let fromId = item.childSnapshot(forPath: "toId").value as! String
                 let msgObj = message()
+                let keyObj = conversationKeys()
+                
                 msgObj.toId = toId
                 msgObj.fromId = fromId
                 msgObj.text = text
+               keyObj.messageKey = item.key
                 self.msgArray.append(msgObj)
+                
+                let user = Auth.auth().currentUser
+                let ref = Database.database().reference().child("senderMessages").child((user?.uid)!)
+                ref.observe(.value) { (snapshot) in
+                    guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
+                    {return}
+                    for item in senderSnapshot{
+                        keyObj.senderKey  = item.childSnapshot(forPath: "key").value as! String
+                    }
+                    
+                }
+                
+                let receiverRef = Database.database().reference().child("recieverMessages").child((self.userData.userId))
+                receiverRef.observe(.value) { (snapshot) in
+                    guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
+                    {return}
+                    for item in senderSnapshot{
+                        keyObj.receiverKey = item.childSnapshot(forPath: "key").value as! String
+                    }
+                    
+                }
+                 self.keyArray.append(keyObj)
                 DispatchQueue.main.async() {
                     self.tableView.reloadData()
                 }
             }
         }
     }
+    
+   /* func loadSender(){
+        let user = Auth.auth().currentUser
+        let ref = Database.database().reference().child("senderMessages").child((user?.uid)!)
+        ref.observe(.value) { (snapshot) in
+            guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
+            {return}
+            for item in senderSnapshot{
+               self.senderKey  = item.childSnapshot(forPath: "key").value as! String
+        }
+        
+    }
+    }*/
+    
+  /*  func loadReceiver(){
+        let receiverRef = Database.database().reference().child("recieverMessages").child((userData.userId))
+        receiverRef.observe(.value) { (snapshot) in
+            guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
+            {return}
+            for item in senderSnapshot{
+                self.senderKey  = item.childSnapshot(forPath: "key").value as! String
+               
+            }
+            
+        }
+    }*/
     
     @IBAction func sendMsgClicked(_ sender: Any) {
         let message = msgTxt.text
@@ -54,10 +106,18 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
         let msg = ["text":message,"toId":userData.userId,"fromId":fromId]
         childRef.setValue(msg)
         
-       /* let userMsgRef = Database.database().reference().child("userMessages").child(fromId)
-        let usrMsg = ["text":message,"toId":userData.userId]
+        let userMsgRef = Database.database().reference().child("senderMessages").child(fromId)
         let msgId = childRef.key
-        userMsgRef.setValue([msgId:1])*/
+       // userMsgRef.setValue(msgId)
+        let conversation = ["key":msgId,"message":message]
+        userMsgRef.childByAutoId().setValue(conversation)
+        
+        let recieverMsgRef = Database.database().reference().child("recieverMessages").child(userData.userId)
+        let rcvId = childRef.key
+        // userMsgRef.setValue(msgId)
+        let rcvConversation = ["key":rcvId,"message":message]
+        recieverMsgRef.childByAutoId().setValue(rcvConversation)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,22 +129,25 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell")as! MessagesCustomCellTableViewCell
-        let user = Auth.auth().currentUser
+        let msgObj = self.msgArray[indexPath.row]
+        let keyObj = self.keyArray[indexPath.row]
         
-        let msgObject = msgArray[indexPath.row]
-       
-        var youMsg : String!
-        var meMsg : String!
-        
-            if (self.userData.userId == msgObject.toId) && (msgObject.fromId == (user?.uid)!) {
-            youMsg = msgObject.text
+        if (keyObj.messageKey == keyObj.senderKey) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageFromMe")as! MessageFromMeCell
+            cell.msgFromMe.text = msgObj.text
+            return cell
         }
-            if ((user?.uid) == msgObject.fromId) && ((self.userData.userId == msgObject.toId)) {
-            meMsg = msgObject.text
+      else if(keyObj.messageKey == keyObj.receiverKey){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageFromYou")as! MessagesCustomCellTableViewCell
+            cell.msgFromYou.text = msgObj.text
+            return cell
         }
-        cell.msgFromYou.text = youMsg
-        cell.msgFromMe.text = meMsg
-         return cell
+        else{
+             let cell1 = tableView.dequeueReusableCell(withIdentifier: "messageFromMe")as! MessageFromMeCell
+            cell1.msgFromMe.text = ""
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "messageFromYou")as! MessagesCustomCellTableViewCell
+            cell2.msgFromYou.text = ""
+            return (cell1)
+        }
     }
 }

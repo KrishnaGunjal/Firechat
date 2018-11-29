@@ -11,4 +11,12 @@ class message{
     var text : String!
     var toId : String!
     var fromId : String!
+   /* func chatPartnerId() -> String {
+        if fromId == Auth.auth().currentUser?.uid{
+            return toId
+        }
+        else{
+            return fromId
+        }
+    }*/
 }
