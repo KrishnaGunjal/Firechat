@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 class SignUpViewController: UIViewController {
 
+    var loader : UIActivityIndicatorView!
     
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailIdTxt: UITextField!
@@ -20,6 +21,7 @@ class SignUpViewController: UIViewController {
         let userName = usernameTxt.text
         let password = passwordTxt.text
         let email = emailIdTxt.text
+        self.displayActivityIndicatorView()
         if(email != nil) && (password != nil) {
             Auth.auth().createUser(withEmail: email!, password: password!, completion: { (result, error) in
                 print(result as Any)
@@ -36,13 +38,36 @@ class SignUpViewController: UIViewController {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "activeConversation")as! ActiveConversationTableViewController
                     self.navigationController?.pushViewController(viewController, animated: true)
+                    self.hideActivityIndicatorView()
                 }
                 
             })
         }
     }
-    override func viewDidLoad() {
+    
+    func displayActivityIndicatorView(){
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        self.view.bringSubview(toFront: self.loader)
+        self.loader.isHidden = false
+        self.loader.startAnimating()
+    }
+    
+    func hideActivityIndicatorView(){
+        if !self.loader.isHidden{
+            DispatchQueue.main.async {
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.loader.stopAnimating()
+                self.loader.isHidden = true
+            }
+        }
+   
+        func viewDidLoad() {
         super.viewDidLoad()
-  }
+        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loader.center = view.center
+        loader.isHidden = true
+        self.view.addSubview(loader)
+        }
 
+}
 }
