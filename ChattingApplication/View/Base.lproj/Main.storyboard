@@ -34,7 +34,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="cNJ-vf-7pJ">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="Qyu-x7-Zls" customClass="SignInViewController" customModule="ChattingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" modalTransitionStyle="crossDissolve" id="Qyu-x7-Zls" customClass="SignInViewController" customModule="ChattingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xxg-FW-WFu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,15 +137,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gx-Yr-nyD">
-                                <rect key="frame" x="20" y="637" width="335" height="30"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="sendMsgClicked:" destination="Z3E-et-EPe" eventType="touchUpInside" id="42m-tf-wQt"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say Something here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-lq-ka4">
-                                <rect key="frame" x="20" y="587" width="335" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say Something here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-lq-ka4">
+                                <rect key="frame" x="20" y="587" width="229" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -205,6 +198,13 @@
                                     <outlet property="delegate" destination="Z3E-et-EPe" id="jQP-v4-Hug"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gx-Yr-nyD">
+                                <rect key="frame" x="275" y="572" width="65" height="60"/>
+                                <state key="normal" title="Send" image="send"/>
+                                <connections>
+                                    <action selector="sendMsgClicked:" destination="Z3E-et-EPe" eventType="touchUpInside" id="42m-tf-wQt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -214,6 +214,8 @@
                             <constraint firstItem="fqZ-Gd-qOH" firstAttribute="trailing" secondItem="BIc-r3-mdO" secondAttribute="trailing" constant="20" id="Egr-HE-cId"/>
                             <constraint firstItem="aLs-lq-ka4" firstAttribute="leading" secondItem="fqZ-Gd-qOH" secondAttribute="leading" constant="20" id="GSD-iT-EGI"/>
                             <constraint firstItem="fqZ-Gd-qOH" firstAttribute="bottom" secondItem="5gx-Yr-nyD" secondAttribute="bottom" id="K2C-ol-Vu1"/>
+                            <constraint firstItem="aLs-lq-ka4" firstAttribute="top" secondItem="BIc-r3-mdO" secondAttribute="bottom" constant="23" id="aKs-zC-Fdd"/>
+                            <constraint firstItem="aLs-lq-ka4" firstAttribute="leading" secondItem="fqZ-Gd-qOH" secondAttribute="leading" constant="20" id="bho-9L-cET"/>
                             <constraint firstItem="BIc-r3-mdO" firstAttribute="top" secondItem="fqZ-Gd-qOH" secondAttribute="top" id="ecU-uY-4e5"/>
                             <constraint firstItem="BIc-r3-mdO" firstAttribute="leading" secondItem="fqZ-Gd-qOH" secondAttribute="leading" constant="20" id="fbh-IZ-69n"/>
                             <constraint firstItem="fqZ-Gd-qOH" firstAttribute="trailing" secondItem="aLs-lq-ka4" secondAttribute="trailing" constant="20" id="fi4-EU-rkH"/>
@@ -318,4 +320,7 @@
             <point key="canvasLocation" x="1281" y="-1473"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="send" width="128" height="128"/>
+    </resources>
 </document>

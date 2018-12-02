@@ -137,17 +137,18 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
             cell.msgFromMe.text = msgObj.text
             return cell
         }
-      else if(keyObj.messageKey == keyObj.receiverKey){
+      else //(keyObj.messageKey == keyObj.receiverKey)
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageFromYou")as! MessagesCustomCellTableViewCell
             cell.msgFromYou.text = msgObj.text
             return cell
         }
-        else{
+        /*else{
              let cell1 = tableView.dequeueReusableCell(withIdentifier: "messageFromMe")as! MessageFromMeCell
             cell1.msgFromMe.text = ""
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "messageFromYou")as! MessagesCustomCellTableViewCell
             cell2.msgFromYou.text = ""
             return (cell1)
-        }
+        }*/
     }
 }
