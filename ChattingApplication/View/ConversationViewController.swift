@@ -130,9 +130,8 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let msgObj = self.msgArray[indexPath.row]
-        let keyObj = self.keyArray[indexPath.row]
         
-        if (keyObj.messageKey == keyObj.senderKey) {
+        if ( userData.userId == msgObj.fromId) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageFromMe")as! MessageFromMeCell
             cell.msgFromMe.text = msgObj.text
             return cell
