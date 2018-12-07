@@ -14,7 +14,17 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     var loader : UIActivityIndicatorView!
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.hidesBarsOnTap = true
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.backBarButtonItem?.title = ""
+        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 128/255, blue: 0/255, alpha: 1.0)
+        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loader.center = view.center
+        loader.isHidden = true
+        self.view.addSubview(loader)
+    }
     @IBAction func signInClicked(_ sender: Any) {
         let email = emailTxt.text
         let password = passwordTxt.text
@@ -32,16 +42,7 @@ class SignInViewController: UIViewController {
             })
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.backBarButtonItem?.title = ""
-          navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 0/255, blue: 255/255, alpha: 1.0)
-        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        loader.center = view.center
-        loader.isHidden = true
-        self.view.addSubview(loader)
-    }
+    
 
     func displayActivityIndicatorView(){
         UIApplication.shared.beginIgnoringInteractionEvents()

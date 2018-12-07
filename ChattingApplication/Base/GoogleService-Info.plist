@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>797749736976-4jq1c0l53opsbs92u75iodt3g374hhq1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.797749736976-4jq1c0l53opsbs92u75iodt3g374hhq1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSFyjc7newDk7Lt8t5Azog8-yo6ZUtNT4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>797749736976</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Krishna.ChattingApplication</string>
+	<key>PROJECT_ID</key>
+	<string>chattingapplication-e0721</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chattingapplication-e0721.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:797749736976:ios:d864292fb6458898</string>
+	<key>DATABASE_URL</key>
+	<string>https://chattingapplication-e0721.firebaseio.com</string>
+</dict>
+</plist>
