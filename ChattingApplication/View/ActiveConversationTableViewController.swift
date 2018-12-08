@@ -12,12 +12,23 @@ import FirebaseAuth
 import FirebaseDatabase
 class ActiveConversationTableViewController: UITableViewController {
     var userArray = [user]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        let button: UIButton = UIButton(type: UIButtonType.custom) as! UIButton
+        button.setImage(UIImage(named: "out"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(logout), for: UIControlEvents.touchUpInside)
+        button.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        button.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
         fetchUsers()
         self.tableView.reloadData()
  }
-    @IBAction func logoutClicked(_ sender: Any) {
+    
+    @objc func logout(){
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -63,7 +74,9 @@ class ActiveConversationTableViewController: UITableViewController {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let user = self.userArray[indexPath.row]
         print(user.userName)
+        cell.textLabel?.font = UIFont(name: "Menlo", size: 18)
         cell.textLabel?.text = user.userName
+        cell.detailTextLabel?.font = UIFont(name: "Menlo", size: 13)
         cell.detailTextLabel?.text = user.email
         return cell
     }

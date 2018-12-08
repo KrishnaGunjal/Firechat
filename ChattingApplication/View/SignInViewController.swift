@@ -33,6 +33,11 @@ class SignInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email!, password: password!, completion: { (result,error) in
                 if error != nil{
                     print("Sign in failed")
+                    let alert = UIAlertController(title: "Incorrect Credentials", message: "Email or password is incorrect. Please try again" , preferredStyle: UIAlertControllerStyle.alert)
+                    let action = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                     self.hideActivityIndicatorView()
                 }
                 else{
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "activeConversation")as! ActiveConversationTableViewController

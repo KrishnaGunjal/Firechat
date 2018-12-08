@@ -99,6 +99,13 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBAction func sendMsgClicked(_ sender: Any) {
         let message = msgTxt.text
+        if msgTxt.text == "" {
+            let alert = UIAlertController(title: "Warning", message: "You cannnot sent empty message", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
         let ref = Database.database().reference().child("messages")
         let user = Auth.auth().currentUser
         let fromId = (user?.uid)!
@@ -117,7 +124,7 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
         // userMsgRef.setValue(msgId)
         let rcvConversation = ["key":rcvId,"message":message]
         recieverMsgRef.childByAutoId().setValue(rcvConversation)
-        
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

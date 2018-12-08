@@ -13,10 +13,18 @@ import FirebaseDatabase
 class SignUpViewController: UIViewController {
 
     var loader : UIActivityIndicatorView!
-    
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailIdTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loader.center = view.center
+        loader.isHidden = true
+        self.view.addSubview(loader)
+    }
+    
     @IBAction func signUpClicked(_ sender: Any) {
         let userName = usernameTxt.text
         let password = passwordTxt.text
@@ -27,7 +35,6 @@ class SignUpViewController: UIViewController {
                 print(result as Any)
                 if error != nil{
                     print(error)
-                    return
                 }
                 else{
                     let ref = Database.database().reference()
@@ -60,14 +67,5 @@ class SignUpViewController: UIViewController {
                 self.loader.isHidden = true
             }
         }
-   
-        func viewDidLoad() {
-        super.viewDidLoad()
-        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        loader.center = view.center
-        loader.isHidden = true
-        self.view.addSubview(loader)
-        }
-
 }
 }
