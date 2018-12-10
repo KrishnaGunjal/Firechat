@@ -70,33 +70,7 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
             }
         }
     }
-    
-   /* func loadSender(){
-        let user = Auth.auth().currentUser
-        let ref = Database.database().reference().child("senderMessages").child((user?.uid)!)
-        ref.observe(.value) { (snapshot) in
-            guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
-            {return}
-            for item in senderSnapshot{
-               self.senderKey  = item.childSnapshot(forPath: "key").value as! String
-        }
-        
-    }
-    }*/
-    
-  /*  func loadReceiver(){
-        let receiverRef = Database.database().reference().child("recieverMessages").child((userData.userId))
-        receiverRef.observe(.value) { (snapshot) in
-            guard let senderSnapshot = snapshot.children.allObjects as? [DataSnapshot] else
-            {return}
-            for item in senderSnapshot{
-                self.senderKey  = item.childSnapshot(forPath: "key").value as! String
-               
-            }
-            
-        }
-    }*/
-    
+ 
     @IBAction func sendMsgClicked(_ sender: Any) {
         let message = msgTxt.text
         if msgTxt.text == "" {
