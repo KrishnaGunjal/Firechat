@@ -15,7 +15,7 @@ class ActiveConversationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 128/255, blue: 0/255, alpha: 0.9)
         let button: UIButton = UIButton(type: UIButtonType.custom) as! UIButton
         button.setImage(UIImage(named: "out"), for: UIControlState.normal)
         button.addTarget(self, action: #selector(logout), for: UIControlEvents.touchUpInside)
