@@ -73,7 +73,7 @@ class ActiveConversationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let user = self.userArray[indexPath.row]
-        print(user.userName)
+        //print(user.userName)
         cell.textLabel?.font = UIFont(name: "Menlo", size: 18)
         cell.textLabel?.text = user.userName
         cell.detailTextLabel?.font = UIFont(name: "Menlo", size: 13)

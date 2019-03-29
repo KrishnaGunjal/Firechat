@@ -31,7 +31,7 @@ class ConversationViewController: UIViewController,UITableViewDelegate,UITableVi
             guard let msgSnapshot = snapshot.children.allObjects as?[DataSnapshot] else {return}
             for item in msgSnapshot{
                 let text = item.childSnapshot(forPath: "text").value as! String
-                print(text)
+               // print(text)
                 let toId = item.childSnapshot(forPath: "toId").value as! String
                 let fromId = item.childSnapshot(forPath: "toId").value as! String
                 let msgObj = message()

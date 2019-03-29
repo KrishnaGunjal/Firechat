@@ -16,7 +16,7 @@ class SignInViewController: UIViewController {
     var loader : UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.hidesBarsOnTap = true
+        //self.navigationController?.hidesBarsOnTap = true
         self.navigationItem.hidesBackButton = true
         self.navigationItem.backBarButtonItem?.title = ""
         navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 128/255, blue: 0/255, alpha: 1.0)
@@ -32,11 +32,7 @@ class SignInViewController: UIViewController {
         if (email != nil) && (password != nil) {
             Auth.auth().signIn(withEmail: email!, password: password!, completion: { (result,error) in
                 if error != nil{
-                    print("Sign in failed")
-                    let alert = UIAlertController(title: "Incorrect Credentials", message: "Email or password is incorrect. Please try again" , preferredStyle: UIAlertControllerStyle.alert)
-                    let action = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
+                    self.showAlert(title: "Error", message: (error?.localizedDescription)!)
                      self.hideActivityIndicatorView()
                 }
                 else{
@@ -48,7 +44,13 @@ class SignInViewController: UIViewController {
         }
     }
     
-
+    func showAlert(title : String, message : String, action : String = "OK"){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: action, style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func displayActivityIndicatorView(){
         UIApplication.shared.beginIgnoringInteractionEvents()
         self.view.bringSubview(toFront: self.loader)
