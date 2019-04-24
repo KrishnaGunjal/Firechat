@@ -17,9 +17,10 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationController?.hidesBarsOnTap = true
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.backBarButtonItem?.title = ""
-        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 128/255, blue: 0/255, alpha: 1.0)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.backBarButtonItem?.title = ""
+//        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0/255, green: 128/255, blue: 0/255, alpha: 1.0)
         loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loader.center = view.center
         loader.isHidden = true
